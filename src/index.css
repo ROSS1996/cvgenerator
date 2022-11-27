@@ -1,70 +1,68 @@
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+* {
   margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  list-style-position: inside;
+}
+
+.App {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  gap: 10px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+fieldset {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+label, legend {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+#fields {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 15px;
+  background-color: #e4e4e4;
+  gap: 5px;
+}
+
+.controlButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.editButton, .printButton {
+  padding: 10px;
+  width: 100px;
+  font-weight: 600;
+  border: 1px solid lightgrey;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  border-radius: 2px;
+  color: black;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.editButton {
+  background-color: rgb(255, 229, 217);
 }
+
+.printButton {
+  background-color: rgb(217, 255, 219);
+}
+
+
