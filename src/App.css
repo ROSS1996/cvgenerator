@@ -2,7 +2,6 @@
   font-style: normal;
 }
 
-
 #header {
   padding: 10px;
   grid-row: 1;
@@ -13,9 +12,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  -webkit-print-color-adjust: exact !important;   /* Chrome, Safari 6 – 15.3, Edge */
-  color-adjust: exact !important;                 /* Firefox 48 – 96 */
-  print-color-adjust: exact !important;  
+  -webkit-print-color-adjust: exact !important; /* Chrome, Safari 6 – 15.3, Edge */
+  color-adjust: exact !important; /* Firefox 48 – 96 */
+  print-color-adjust: exact !important;
 }
 
 .photo {
@@ -34,7 +33,6 @@
   padding: 10px;
   grid-row: 2;
   grid-column: 1;
-
 }
 
 #info {
@@ -42,9 +40,9 @@
   grid-row: 2;
   grid-column: 2;
   background-color: #d8d8d8;
-  -webkit-print-color-adjust: exact !important;   /* Chrome, Safari 6 – 15.3, Edge */
-  color-adjust: exact !important;                 /* Firefox 48 – 96 */
-  print-color-adjust: exact !important;  
+  -webkit-print-color-adjust: exact !important; /* Chrome, Safari 6 – 15.3, Edge */
+  color-adjust: exact !important; /* Firefox 48 – 96 */
+  print-color-adjust: exact !important;
 }
 
 #info a {
@@ -67,7 +65,7 @@
   grid-template-rows: 100px 1fr;
   width: 800px;
   height: 99.8vh;
-  border: 1px solid  black;
+  border: 1px solid black;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: white;
 }
@@ -78,11 +76,16 @@
   gap: 30px;
 }
 
-.section {
+.section,
+.sectionTwo {
   padding-top: 5px;
   padding-bottom: 5px;
   margin-bottom: 5px;
   border-bottom: 1px solid #778899;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .experienceItem {
@@ -114,7 +117,6 @@
   list-style-type: disc;
 }
 
-
 .educationItem {
   display: flex;
   flex-direction: row;
@@ -135,6 +137,19 @@
   flex-direction: column;
 }
 
+.editActive {
+  border: 1px dotted black;
+  background-color: rgb(243, 243, 213);
+  padding: 4px;
+  color: black;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+
+.editActive:hover {
+  background-color: rgb(236, 236, 213);
+}
+
 @page {
   margin: 0;
 }
@@ -148,7 +163,6 @@
   }
 
   #curriculum {
-    height: calc(100vh + 5px);;
+    height: calc(100vh + 5px);
   }
-
 }

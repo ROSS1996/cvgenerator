@@ -61,8 +61,16 @@ label, legend {
   background-color: rgb(255, 229, 217);
 }
 
+.editButtonActive {
+  background-color: rgb(243, 101, 101);
+}
+
 .printButton {
   background-color: rgb(217, 255, 219);
 }
 
+.printButtonDisable {
+  background-color: rgb(161, 161, 161);
+  cursor: default;
+}
 

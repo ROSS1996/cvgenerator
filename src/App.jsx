@@ -7,6 +7,7 @@ class App extends React.Component {
         super();
 
         this.state = {
+            editMode: false,
             profile: {
                 firstName: 'John',
                 lastName: 'Smith',
@@ -25,8 +26,39 @@ class App extends React.Component {
     }
 
   printCurriculum = () => {
-    window.print();
+    if (this.state.editMode === false) {
+        window.print();
+    }
   };
+
+  toggleEdit = (button) => {
+    button.target.classList.toggle('editButtonActive')
+    const printButton = document.getElementById('printButton')
+    printButton.classList.toggle('printButtonDisable')
+    const sections = document.getElementsByClassName('section');
+    const editable = document.getElementsByClassName('editable')
+    if (this.state.editMode === false) {
+        for (const section of sections) {
+            const addButton = document.createElement("button")
+            addButton.classList.add('addButton')
+            addButton.innerText = "➕"
+            section.appendChild(addButton)
+        }
+        for (const item of editable) {
+            item.classList.add('editActive')
+        }
+        this.setState({editMode: true});
+    }
+    else if (this.state.editMode === true) {
+        for (const section of sections) {
+            section.lastChild.remove()
+        }
+        for (const item of editable) {
+            item.classList.remove('editActive')
+        }
+        this.setState({editMode: false});
+    }
+  }
 
   render() {
 
@@ -35,13 +67,19 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="controlButtons">
-          <button type="button" className="editButton">
+          <button 
+          type="button" 
+          onClick={this.toggleEdit}
+          className="editButton"
+          id="editButton"
+          >
             Edit Mode
           </button>
           <button
             type="button"
             onClick={this.printCurriculum}
             className="printButton"
+            id="printButton"
           >
             Print
           </button>
@@ -49,8 +87,8 @@ class App extends React.Component {
         <div id="curriculum">
           <div id="header">
             <div>
-              <h1 id="personName">{profile.firstName} {profile.lastName}</h1>
-              <h2 id="personRole">{profile.role}</h2>
+              <h1 id="personName" className="editable">{profile.firstName} {profile.lastName}</h1>
+              <h2 id="personRole" className="editable">{profile.role}</h2>
             </div>
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
@@ -60,33 +98,41 @@ class App extends React.Component {
             />
           </div>
           <section id="career">
-            <p id="personResume">{profile.about}</p>
+            <p id="personResume" className="editable">{profile.about}</p>
             <section id="experiencesSection">
-              <h3 className="section">Experience</h3>
+              <div className="section">
+                  <h3>Experience</h3>
+              </div>
             </section>
             <section id="educationSection">
-              <h3 className="section">Education</h3>
+              <div className="section">
+                  <h3>Education</h3>
+              </div>
               <ul id="education"></ul>
             </section>
             <section id="coursesSection">
-              <h3 className="section">Courses</h3>
+              <div className="section">
+                  <h3>Courses</h3>
+              </div>
               <ul id="courses"></ul>
             </section>
           </section>
           <section id="info">
             <section id="personalData">
-              <h3 className="section">Personal Data</h3>
+              <div className="sectionTwo">
+                  <h3>Personal Data</h3>
+              </div>
               <div>
                 <h4>Address</h4>
-                <p id="address">{profile.address}</p>
+                <p id="address" className="editable">{profile.address}</p>
               </div>
               <div>
                 <h4>Phone</h4>
-                <p>{profile.phone}</p>
+                <p className="editable">{profile.phone}</p>
               </div>
               <div>
                 <h4>Email</h4>
-                <a href={'mailto://' + profile.email}> <p>{profile.email}</p> </a>
+                <a href={'mailto://' + profile.email}> <p className="editable">{profile.email}</p> </a>
               </div>
             </section>
             <section id="socialmedia">
@@ -94,7 +140,9 @@ class App extends React.Component {
               <div></div>
             </section>
             <section id="keySkills">
-              <h3 className="section">Key Skills</h3>
+              <div className="section">
+                  <h3>Key Skills</h3>
+              </div>
               <ul></ul>
             </section>
             <section id="techSkills">
@@ -102,10 +150,12 @@ class App extends React.Component {
               <ul></ul>
             </section>
             <section id="languages">
-              <h3 className="section">Languages</h3>
+              <div className="section">
+                  <h3>Languages</h3>
+              </div>
               <ul>
                 <li>
-                  <h4>{profile.firstLanguage}</h4>
+                  <h4 className="editable">{profile.firstLanguage}</h4>
                   <p>Native</p>
                 </li>
               </ul>
