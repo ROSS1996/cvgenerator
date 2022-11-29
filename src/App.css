@@ -138,3 +138,17 @@
 @page {
   margin: 0;
 }
+
+@media print {
+  .controlButtons {
+    display: none !important;
+  }
+  .App {
+    margin-top: 0 !important;
+  }
+
+  #curriculum {
+    height: calc(100vh + 5px);;
+  }
+
+}

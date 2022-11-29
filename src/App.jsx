@@ -2,11 +2,15 @@ import './App.css'
 
 function App() {
 
+    const printCurriculum = () => {
+        window.print();
+    }
+
   return (
     <div className="App">
     <div className="controlButtons">
         <button type="button" className="editButton">Edit Mode</button>
-        <button type="button" className="printButton">Print</button>
+        <button type="button" onClick={printCurriculum} className="printButton">Print</button>
     </div>
     <div id="curriculum">
         <div id="header">
