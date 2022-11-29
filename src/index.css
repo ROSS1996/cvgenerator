@@ -74,3 +74,9 @@ label, legend {
   cursor: default;
 }
 
+.main {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
