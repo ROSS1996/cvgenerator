@@ -5,6 +5,23 @@ class App extends React.Component {
 
     constructor() {
         super();
+
+        this.state = {
+            profile: {
+                firstName: 'John',
+                lastName: 'Smith',
+                role: 'IT Project Manager',
+                about: `IT Professional with more than 10 years of experience specializing in IT department management for international logistics companies.
+                I can implement effective IT strategies at local and global levels. My greatest strength is business awareness.
+                It enables me to permanently streamline infrastructure and applications.`,
+                address: 'Washington, DC',
+                phone: '774-987-4009',
+                email: 'jsmith@uptwork.com',
+                firstLanguage: 'English'
+            }
+        }
+
+
     }
 
   printCurriculum = () => {
@@ -12,6 +29,9 @@ class App extends React.Component {
   };
 
   render() {
+
+    const { profile } = this.state;
+
     return (
       <div className="App">
         <div className="controlButtons">
@@ -29,8 +49,8 @@ class App extends React.Component {
         <div id="curriculum">
           <div id="header">
             <div>
-              <h1 id="personName">John Smith</h1>
-              <h2 id="personRole">IT Project Manager</h2>
+              <h1 id="personName">{profile.firstName} {profile.lastName}</h1>
+              <h2 id="personRole">{profile.role}</h2>
             </div>
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
@@ -40,13 +60,7 @@ class App extends React.Component {
             />
           </div>
           <section id="career">
-            <p id="personResume">
-              IT Professional with more than 10 years of experience specializing
-              in IT department management for international logistics companies.
-              I can implement effective IT strategies at local and global
-              levels. My greatest strength is business awareness. It enables me
-              to permanently streamline infrastructure and applications.
-            </p>
+            <p id="personResume">{profile.about}</p>
             <section id="experiencesSection">
               <h3 className="section">Experience</h3>
             </section>
@@ -64,17 +78,15 @@ class App extends React.Component {
               <h3 className="section">Personal Data</h3>
               <div>
                 <h4>Address</h4>
-                <p id="address">Washington, DC</p>
+                <p id="address">{profile.address}</p>
               </div>
               <div>
                 <h4>Phone</h4>
-                <p>774-987-4009</p>
+                <p>{profile.phone}</p>
               </div>
               <div>
                 <h4>Email</h4>
-                <a href="mailto://jsmith@uptwork.com">
-                  <p>jsmith@uptwork.com</p>
-                </a>
+                <a href={'mailto://' + profile.email}> <p>{profile.email}</p> </a>
               </div>
             </section>
             <section id="socialmedia">
@@ -93,7 +105,7 @@ class App extends React.Component {
               <h3 className="section">Languages</h3>
               <ul>
                 <li>
-                  <h4>English</h4>
+                  <h4>{profile.firstLanguage}</h4>
                   <p>Native</p>
                 </li>
               </ul>
