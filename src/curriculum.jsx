@@ -1,7 +1,18 @@
 import React from "react";
-import "./App.css";
+import "./curriculum.css";
 
-class App extends React.Component {
+import Experience from "./components/experience";
+import Education from "./components/education";
+import Courses from "./components/courses";
+
+import {
+  SocialMedias,
+  KeySkills,
+  TechSkills,
+  Languages,
+} from "./components/other";
+
+class Curriculum extends React.Component {
   constructor() {
     super();
 
@@ -16,6 +27,90 @@ class App extends React.Component {
         email: "jsmith@uptwork.com",
         firstLanguage: "English",
       },
+      languages: [
+        { language: "Spanish", level: "Intermediate" },
+        { language: "Portuguese", level: "Fluent" },
+        { language: "French", level: "Basic" },
+      ],
+      socialMedias: [
+        { website: "LinkedIn", address: "linkedin.com/johnutw" },
+        { website: "Github", address: "github.com/johnutw" },
+      ],
+      keykills: [
+        "Project Management",
+        "Team Management",
+        "Budget Management",
+        "Change Management",
+        "IT Strategy Development",
+        "IT Process Analysis",
+        "IT Integration and Migrations",
+      ],
+      techSkills: [
+        "MS Windows Server 2003/2008",
+        "Linux/Unix",
+        "LAN, WAN, WLAN, SD-WAN",
+        "Active Directory",
+        "Cisco Routers",
+        "SAP",
+      ],
+      jobHistory: [
+        {
+          dateStarted: "2012/11",
+          dateFinished: "Present",
+          company: "Software House",
+          role: "Project Manager",
+          mainAttributions: ["Responsible for creating, improving and developing IT project strategies",
+            "Manage project teams and constructors",
+            "Plan and monitor IT budgets",
+            "Initiate and manage projects",
+            "Manage key projects",
+            ],
+        },
+        {
+          dateStarted: "2005/11",
+          dateFinished: "2012/11",
+          company: "Support Consultant",
+          role: "Project Manager",
+          mainAttributions: ["Prepared infrastructure performance analysis",
+            "Managed projects and support related to SAP modules",
+            "Recommended optimization measures",
+            "Implemented systems",
+            ],
+        },
+      ],
+      graduations: [
+        {
+          dateStarted: "2002/09",
+          dateFinished: "2005/06",
+          courseName: "Management and Information System",
+          degree: "Masters",
+          institution: "Texas A&M University",
+        },
+        {
+          dateStarted: "1997/09",
+          dateFinished: "2001/05",
+          courseName: "Computer Science and Databases",
+          degree: "Bachelor",
+          institution: "Texas A&M University",
+        },
+      ],
+      coursesTaken: [
+        {
+          date: "2014/05",
+          courseName: "ITL Foundation v2",
+          institution: "Texas A&M University",
+        },
+        {
+          date: "2013/12",
+          courseName: "ITL Foundation v3",
+          institution: "Texas A&M University",
+        },
+        {
+          date: "2011/07",
+          courseName: "Lean It Foundation",
+          institution: "Texas A&M University",
+        },
+      ],
     };
   }
 
@@ -50,60 +145,60 @@ class App extends React.Component {
 
   editField = (field) => {
     if (field.target.id === "editName") {
-        this.setState({
-            profile: {
-                  ...this.state.profile,
-                  fullName: field.target.value
-            }
-        })
+      this.setState({
+        profile: {
+          ...this.state.profile,
+          fullName: field.target.value,
+        },
+      });
     }
     if (field.target.id === "editRole") {
-        this.setState({
-            profile: {
-                  ...this.state.profile,
-                  role: field.target.value
-            }
-        })
+      this.setState({
+        profile: {
+          ...this.state.profile,
+          role: field.target.value,
+        },
+      });
     }
     if (field.target.id === "editResume") {
-        this.setState({
-            profile: {
-                  ...this.state.profile,
-                  about: field.target.value
-            }
-        })
+      this.setState({
+        profile: {
+          ...this.state.profile,
+          about: field.target.value,
+        },
+      });
     }
     if (field.target.id === "editAddress") {
-        this.setState({
-            profile: {
-                  ...this.state.profile,
-                  address: field.target.value
-            }
-        })
+      this.setState({
+        profile: {
+          ...this.state.profile,
+          address: field.target.value,
+        },
+      });
     }
     if (field.target.id === "editPhone") {
-        this.setState({
-            profile: {
-                  ...this.state.profile,
-                  phone: field.target.value
-            }
-        })
+      this.setState({
+        profile: {
+          ...this.state.profile,
+          phone: field.target.value,
+        },
+      });
     }
     if (field.target.id === "editEmail") {
-        this.setState({
-            profile: {
-                  ...this.state.profile,
-                  email: field.target.value
-            }
-        })
+      this.setState({
+        profile: {
+          ...this.state.profile,
+          email: field.target.value,
+        },
+      });
     }
     if (field.target.id === "editNative") {
-        this.setState({
-            profile: {
-                  ...this.state.profile,
-                  firstLanguage: field.target.value
-            }
-        })
+      this.setState({
+        profile: {
+          ...this.state.profile,
+          firstLanguage: field.target.value,
+        },
+      });
     }
   };
 
@@ -133,7 +228,7 @@ class App extends React.Component {
         <div className="main">
           <div id="modification" className="hidden">
             <div className="fields">
-            <h3>Basic Information</h3>
+              <h3>Basic Information</h3>
               <label htmlFor="editName">Name</label>
               <input
                 type="text"
@@ -159,7 +254,7 @@ class App extends React.Component {
                 onChange={this.editField}
                 defaultValue={profile.about}
               />
-            <label htmlFor="editAddress">Address</label>
+              <label htmlFor="editAddress">Address</label>
               <input
                 type="text"
                 name="Address"
@@ -167,7 +262,7 @@ class App extends React.Component {
                 onChange={this.editField}
                 defaultValue={profile.address}
               />
-            <label htmlFor="editPhone">Phone</label>
+              <label htmlFor="editPhone">Phone</label>
               <input
                 type="tel"
                 name="Phone"
@@ -175,7 +270,7 @@ class App extends React.Component {
                 onChange={this.editField}
                 defaultValue={profile.phone}
               />
-            <label htmlFor="editEmail">Email</label>
+              <label htmlFor="editEmail">Email</label>
               <input
                 type="email"
                 name="Email"
@@ -183,7 +278,7 @@ class App extends React.Component {
                 onChange={this.editField}
                 defaultValue={profile.email}
               />
-            <label htmlFor="editNative">Native Language</label>
+              <label htmlFor="editNative">Native Language</label>
               <input
                 type="text"
                 name="NativeLanguage"
@@ -262,18 +357,25 @@ class App extends React.Component {
                 <div className="section">
                   <h3>Experience</h3>
                 </div>
+                <ul id="experienceList">
+                  <Experience listOf={this.state.jobHistory}/>
+                </ul>
               </section>
               <section id="educationSection">
                 <div className="section">
                   <h3>Education</h3>
                 </div>
-                <ul id="education"></ul>
+                <ul id="education">
+                  <Education listOf={this.state.graduations} />
+                </ul>
               </section>
               <section id="coursesSection">
                 <div className="section">
                   <h3>Courses</h3>
                 </div>
-                <ul id="courses"></ul>
+                <ul id="courses">
+                  <Courses listOf={this.state.coursesTaken} />
+                </ul>
               </section>
             </section>
             <section id="info">
@@ -299,17 +401,23 @@ class App extends React.Component {
               </section>
               <section id="socialmedia">
                 <h3 className="section">Social Media</h3>
-                <div></div>
+                <ul>
+                  <SocialMedias listOf={this.state.socialMedias} />
+                </ul>
               </section>
               <section id="keySkills">
                 <div className="section">
                   <h3>Key Skills</h3>
                 </div>
-                <ul></ul>
+                <ul>
+                  <KeySkills listOf={this.state.keykills} />
+                </ul>
               </section>
               <section id="techSkills">
                 <h3 className="section">Technical Skills</h3>
-                <ul></ul>
+                <ul>
+                  <TechSkills listOf={this.state.techSkills} />
+                </ul>
               </section>
               <section id="languages">
                 <div className="section">
@@ -320,6 +428,7 @@ class App extends React.Component {
                     <h4>{profile.firstLanguage}</h4>
                     <p>Native</p>
                   </li>
+                  <Languages listOf={this.state.languages} />
                 </ul>
               </section>
             </section>
@@ -330,4 +439,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Curriculum;

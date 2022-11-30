@@ -68,7 +68,7 @@ input, textarea, select {
   grid-template-columns: 3fr 1fr;
   grid-template-rows: 100px 1fr;
   width: 800px;
-  height: 99.8vh;
+  height: fit-content;
   border: 1px solid black;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: white;
@@ -91,14 +91,13 @@ input, textarea, select {
   justify-content: space-between;
   align-items: center;
 }
-
 .experienceItem {
   display: flex;
   flex-direction: column;
   margin-bottom: 5px;
 }
 
-.companyRole {
+.experienceInfo {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -120,6 +119,7 @@ input, textarea, select {
 .experienceItem ul {
   list-style-type: disc;
 }
+
 
 .educationItem {
   display: flex;
