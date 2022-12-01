@@ -2,7 +2,7 @@ import React from "react";
 import "./curriculum.css";
 
 import Experience from "./components/experience";
-import Education from "./components/education";
+import Graduations from "./components/education";
 import Courses from "./components/courses";
 
 import {
@@ -26,91 +26,7 @@ class Curriculum extends React.Component {
         phone: "774-987-4009",
         email: "jsmith@uptwork.com",
         firstLanguage: "English",
-      },
-      languages: [
-        { language: "Spanish", level: "Intermediate" },
-        { language: "Portuguese", level: "Fluent" },
-        { language: "French", level: "Basic" },
-      ],
-      socialMedias: [
-        { website: "LinkedIn", address: "linkedin.com/johnutw" },
-        { website: "Github", address: "github.com/johnutw" },
-      ],
-      keykills: [
-        "Project Management",
-        "Team Management",
-        "Budget Management",
-        "Change Management",
-        "IT Strategy Development",
-        "IT Process Analysis",
-        "IT Integration and Migrations",
-      ],
-      techSkills: [
-        "MS Windows Server 2003/2008",
-        "Linux/Unix",
-        "LAN, WAN, WLAN, SD-WAN",
-        "Active Directory",
-        "Cisco Routers",
-        "SAP",
-      ],
-      jobHistory: [
-        {
-          dateStarted: "2012/11",
-          dateFinished: "Present",
-          company: "Software House",
-          role: "Project Manager",
-          mainAttributions: ["Responsible for creating, improving and developing IT project strategies",
-            "Manage project teams and constructors",
-            "Plan and monitor IT budgets",
-            "Initiate and manage projects",
-            "Manage key projects",
-            ],
-        },
-        {
-          dateStarted: "2005/11",
-          dateFinished: "2012/11",
-          company: "Support Consultant",
-          role: "Project Manager",
-          mainAttributions: ["Prepared infrastructure performance analysis",
-            "Managed projects and support related to SAP modules",
-            "Recommended optimization measures",
-            "Implemented systems",
-            ],
-        },
-      ],
-      graduations: [
-        {
-          dateStarted: "2002/09",
-          dateFinished: "2005/06",
-          courseName: "Management and Information System",
-          degree: "Masters",
-          institution: "Texas A&M University",
-        },
-        {
-          dateStarted: "1997/09",
-          dateFinished: "2001/05",
-          courseName: "Computer Science and Databases",
-          degree: "Bachelor",
-          institution: "Texas A&M University",
-        },
-      ],
-      coursesTaken: [
-        {
-          date: "2014/05",
-          courseName: "ITL Foundation v2",
-          institution: "Texas A&M University",
-        },
-        {
-          date: "2013/12",
-          courseName: "ITL Foundation v3",
-          institution: "Texas A&M University",
-        },
-        {
-          date: "2011/07",
-          courseName: "Lean It Foundation",
-          institution: "Texas A&M University",
-        },
-      ],
+      }
     };
   }
 
@@ -358,7 +274,7 @@ class Curriculum extends React.Component {
                   <h3>Experience</h3>
                 </div>
                 <ul id="experienceList">
-                  <Experience listOf={this.state.jobHistory}/>
+                  <Experience />
                 </ul>
               </section>
               <section id="educationSection">
@@ -366,7 +282,7 @@ class Curriculum extends React.Component {
                   <h3>Education</h3>
                 </div>
                 <ul id="education">
-                  <Education listOf={this.state.graduations} />
+                  <Graduations />
                 </ul>
               </section>
               <section id="coursesSection">
@@ -374,7 +290,7 @@ class Curriculum extends React.Component {
                   <h3>Courses</h3>
                 </div>
                 <ul id="courses">
-                  <Courses listOf={this.state.coursesTaken} />
+                  <Courses />
                 </ul>
               </section>
             </section>
@@ -402,7 +318,7 @@ class Curriculum extends React.Component {
               <section id="socialmedia">
                 <h3 className="section">Social Media</h3>
                 <ul>
-                  <SocialMedias listOf={this.state.socialMedias} />
+                  <SocialMedias />
                 </ul>
               </section>
               <section id="keySkills">
@@ -410,13 +326,13 @@ class Curriculum extends React.Component {
                   <h3>Key Skills</h3>
                 </div>
                 <ul>
-                  <KeySkills listOf={this.state.keykills} />
+                  <KeySkills />
                 </ul>
               </section>
               <section id="techSkills">
                 <h3 className="section">Technical Skills</h3>
                 <ul>
-                  <TechSkills listOf={this.state.techSkills} />
+                  <TechSkills />
                 </ul>
               </section>
               <section id="languages">
@@ -428,7 +344,7 @@ class Curriculum extends React.Component {
                     <h4>{profile.firstLanguage}</h4>
                     <p>Native</p>
                   </li>
-                  <Languages listOf={this.state.languages} />
+                  <Languages />
                 </ul>
               </section>
             </section>
