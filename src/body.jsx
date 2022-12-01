@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-import Curriculum  from "./curriculum";
+import Curriculum from "./curriculum";
 import Edit from "./edit";
 
 class Body extends React.Component {
@@ -192,7 +192,6 @@ class Body extends React.Component {
     }
   };
 
-
   render() {
     return (
       <div className="App">
@@ -232,4 +231,4 @@ class Body extends React.Component {
   }
 }
 
-export default Body
+export default Body;

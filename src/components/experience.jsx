@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { v4 as uniqueKey } from "uuid";
 
 function Attributions(props) {
@@ -9,7 +9,6 @@ function Attributions(props) {
 }
 
 function Experience(props) {
-
   const myHistory = props.jobHistory.map((item) => (
     <div key={uniqueKey()} className="experienceItem">
       <div className="experienceInfo">
@@ -29,7 +28,14 @@ function Experience(props) {
       </ul>
     </div>
   ));
-  return <>{myHistory} </>;
+  return (
+    <section id="experiencesSection">
+      <div className="section">
+        <h3>Experience</h3>
+      </div>
+      <ul id="experienceList">{myHistory}</ul>
+    </section>
+  );
 }
 
 export default Experience;

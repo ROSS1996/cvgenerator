@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { v4 as uniqueKey } from "uuid";
 
 function Graduations(props) {
-
   const myGraduations = props.gradList.map((item) => (
     <li key={uniqueKey()} className="educationItem">
       <div className="period">
@@ -18,7 +17,14 @@ function Graduations(props) {
       </div>
     </li>
   ));
-  return <>{myGraduations} </>;
+  return (
+    <section id="educationSection">
+      <div className="section">
+        <h3>Education</h3>
+      </div>
+      <ul id="education">{myGraduations}</ul>
+    </section>
+  );
 }
 
 export default Graduations;
