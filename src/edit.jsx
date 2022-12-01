@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
 function Edit(props) {
   function editar(event) {
     props.editState(event.target);
+  }
+
+  function newCourse(event) {
+    event.preventDefault();
+    props.addCourse(event.target)
   }
 
   return (
@@ -109,13 +114,15 @@ function Edit(props) {
       </div>
       <div className="fields">
         <h3>Courses</h3>
-        <label htmlFor="company">Course</label>
-        <input type="text" name="Role" id="role" />
-        <label htmlFor="company">Institution</label>
-        <input type="text" name="Institution" id="institution" />
-        <label htmlFor="Date">Date</label>
-        <input type="month" name="Date" id="courseDate" />
-        <button type="button">Add</button>
+        <form onSubmit={newCourse}>
+          <label htmlFor="company">Course</label>
+          <input type="text" name="Course" id="courseName" />
+          <label htmlFor="company">Institution</label>
+          <input type="text" name="Institution" id="institution" />
+          <label htmlFor="Date">Date</label>
+          <input type="month" name="Date" id="courseDate" />
+          <button type="submit">Add</button>
+        </form>
       </div>
     </div>
   );

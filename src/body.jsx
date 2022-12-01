@@ -26,7 +26,7 @@ class Body extends React.Component {
         { website: "LinkedIn", address: "linkedin.com/johnutw" },
         { website: "Github", address: "github.com/johnutw" },
       ],
-      keykills: [
+      keySkills: [
         "Project Management",
         "Team Management",
         "Budget Management",
@@ -86,23 +86,7 @@ class Body extends React.Component {
           institution: "Texas A&M University",
         },
       ],
-      coursesTaken: [
-        {
-          date: "2014/05",
-          courseName: "ITL Foundation v2",
-          institution: "Texas A&M University",
-        },
-        {
-          date: "2013/12",
-          courseName: "ITL Foundation v3",
-          institution: "Texas A&M University",
-        },
-        {
-          date: "2011/07",
-          courseName: "Lean It Foundation",
-          institution: "Texas A&M University",
-        },
-      ],
+      coursesTaken: [],
     };
   }
 
@@ -133,6 +117,7 @@ class Body extends React.Component {
       this.setState({ editMode: false });
     }
   };
+
   editField = (field) => {
     if (field.id === "editName") {
       this.setState({
@@ -192,6 +177,13 @@ class Body extends React.Component {
     }
   };
 
+  addCourse = (info) => {
+    const newValue = {date: info.courseDate.value.replace("-", "/"), courseName: info.courseName.value, institution: info.institution.value}
+    this.setState(prevState => ({
+      coursesTaken: [...prevState.coursesTaken, newValue]
+    }))
+  }
+
   render() {
     return (
       <div className="App">
@@ -214,12 +206,12 @@ class Body extends React.Component {
           </button>
         </div>
         <div className="main">
-          <Edit editState={this.editField} />
+          <Edit editState={this.editField} addCourse={this.addCourse}/>
           <Curriculum
             userProfile={this.state.profile}
             userLanguages={this.state.languages}
             userSM={this.state.socialMedias}
-            userKS={this.state.keykills}
+            userKS={this.state.keySkills}
             userTS={this.state.techSkills}
             userXP={this.state.jobHistory}
             userGRAD={this.state.graduations}
