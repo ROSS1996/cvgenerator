@@ -74,6 +74,11 @@ input, textarea, select {
   background-color: white;
 }
 
+#courses, #education {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .coursesItem {
   display: flex;
   flex-direction: row;

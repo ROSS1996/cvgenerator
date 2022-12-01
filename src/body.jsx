@@ -43,49 +43,8 @@ class Body extends React.Component {
         "Cisco Routers",
         "SAP",
       ],
-      jobHistory: [
-        {
-          dateStarted: "2012/11",
-          dateFinished: "Present",
-          company: "Software House",
-          role: "Project Manager",
-          mainAttributions: [
-            "Responsible for creating, improving and developing IT project strategies",
-            "Manage project teams and constructors",
-            "Plan and monitor IT budgets",
-            "Initiate and manage projects",
-            "Manage key projects",
-          ],
-        },
-        {
-          dateStarted: "2005/11",
-          dateFinished: "2012/11",
-          company: "Support Consultant",
-          role: "Project Manager",
-          mainAttributions: [
-            "Prepared infrastructure performance analysis",
-            "Managed projects and support related to SAP modules",
-            "Recommended optimization measures",
-            "Implemented systems",
-          ],
-        },
-      ],
-      graduations: [
-        {
-          dateStarted: "2002/09",
-          dateFinished: "2005/06",
-          courseName: "Management and Information System",
-          degree: "Masters",
-          institution: "Texas A&M University",
-        },
-        {
-          dateStarted: "1997/09",
-          dateFinished: "2001/05",
-          courseName: "Computer Science and Databases",
-          degree: "Bachelor",
-          institution: "Texas A&M University",
-        },
-      ],
+      jobHistory: [],
+      graduations: [],
       coursesTaken: [],
     };
   }
@@ -177,8 +136,40 @@ class Body extends React.Component {
     }
   };
 
+  addExperience = (info) => {
+    let items = info.attributionList.children
+    let attributions = []
+    for (let i = 1; i <= 5; i++) {
+      if (items[i].value !== undefined && items[i].value !== null && items[i].value.length > 0) { attributions.push(items[i].value) }
+    }
+
+    const newValue = {
+      dateStarted: info.experienceStart.value.replace("-", "/"),
+      dateFinished: info.experienceEnd.value.replace("-", "/"),
+      role: info.companyRole.value,
+      company: info.companyName.value,
+      mainAttributions: attributions
+    }
+    this.setState(prevState => ({
+      jobHistory: [...prevState.jobHistory, newValue]
+    }))
+  }
+
+  addGraduation = (info) => {
+    const newValue = {
+      dateStarted: info.educationStart.value.replace("-", "/"),
+      dateFinished: info.educationEnd.value.replace("-", "/"),
+      courseName: info.gradCourse.value,
+      degree: info.degree.value,
+      institution: info.gradInstitution.value
+    }
+    this.setState(prevState => ({
+      graduations: [...prevState.graduations, newValue]
+    }))
+  }
+
   addCourse = (info) => {
-    const newValue = {date: info.courseDate.value.replace("-", "/"), courseName: info.courseName.value, institution: info.institution.value}
+    const newValue = {date: info.courseDate.value.replace("-", "/"), courseName: info.courseName.value, institution: info.courseInstitution.value}
     this.setState(prevState => ({
       coursesTaken: [...prevState.coursesTaken, newValue]
     }))
@@ -206,7 +197,12 @@ class Body extends React.Component {
           </button>
         </div>
         <div className="main">
-          <Edit editState={this.editField} addCourse={this.addCourse}/>
+          <Edit
+            editState={this.editField}
+            addCourse={this.addCourse}
+            addGraduation={this.addGraduation}
+            addExperience={this.addExperience}
+          />
           <Curriculum
             userProfile={this.state.profile}
             userLanguages={this.state.languages}
