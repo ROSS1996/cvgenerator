@@ -20,6 +20,22 @@ function Edit(props) {
     props.addExperience(event.target)
   }
 
+  function newSkill(event) {
+    event.preventDefault();
+    props.addSkill(event.target)
+  }
+
+  function newLanguage(event) {
+    event.preventDefault();
+    props.addLanguage(event.target)
+  }
+
+  function newSocialMedia(event) {
+    event.preventDefault();
+    props.addSocialMedia(event.target)
+  }
+
+
   return (
     <div id="modification" className="hidden">
       <div className="fields">
@@ -135,6 +151,59 @@ function Edit(props) {
           <input type="text" name="courseInstitution" id="courseInstitution" />
           <label htmlFor="courseDate">Date</label>
           <input type="month" name="courseDate" id="courseDate" />
+          <button type="submit">Add</button>
+        </form>
+      </div>
+      <div className="fields">
+        <h3>Skills</h3>
+        <form onSubmit={newSkill} className="fields">
+          <div id="skillType">
+            <div className="skillRadios">
+              <label htmlFor="techSkill">Tech Skill</label>
+              <input type="radio" name="skillType" id="techSkill" value="techSkill"/>
+            </div>
+            <div className="skillRadios">
+              <label htmlFor="keySkill">Key Skill</label>
+              <input type="radio" name="skillType" id="keySkill"  value="keySkill"/>
+            </div>
+          </div>
+          <label htmlFor="courseName">Skill</label>
+          <input type="text" name="skillName" id="skillName" />
+          <button type="submit">Add</button>
+        </form>
+      </div>
+      <div className="fields">
+        <h3>Language</h3>
+        <form onSubmit={newLanguage} className="fields">
+          <label htmlFor="languageName">Language</label>
+          <input type="text" name="languageName" id="languageName" />
+          <label htmlFor="languageLevel"></label>
+          <select name="languageLevel" id="languageLevel">
+            <optgroup label="Traditional Levels">
+                <option value="Basic">Basic</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+                <option value="Fluent">Fluent</option>
+            </optgroup>
+            <optgroup label="CEFR Standard">
+                <option value="A1 - Beginner">A1 - Beginner</option>
+                <option value="A2 - Elementary">A2 - Elementary</option>
+                <option value="B1 - Intermediate">B1 - Intermediate</option>
+                <option value="B2 - Upper-Intermediate">B2 - Upper-Intermediate</option>
+                <option value="C1 - Advanced">C1 - Advanced</option>
+                <option value="C2 - Mastery">C2 - Mastery</option>
+            </optgroup>
+          </select>
+          <button type="submit">Add</button>
+        </form>
+      </div>
+      <div className="fields">
+        <h3>Social Medias</h3>
+        <form onSubmit={newSocialMedia} className="fields">
+          <label htmlFor="mediaName">Social Media</label>
+          <input type="text" name="mediaName" id="mediaName" />
+          <label htmlFor="mediaLink">Link</label>
+          <input type="text" name="mediaLink" id="mediaLink" />
           <button type="submit">Add</button>
         </form>
       </div>

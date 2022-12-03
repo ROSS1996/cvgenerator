@@ -156,6 +156,18 @@ input, textarea, select {
   gap: 10px;
 }
 
+#skillType {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.skillRadios {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
 .fields {
    display: flex;
    flex-direction: column;

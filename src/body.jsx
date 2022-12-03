@@ -17,32 +17,10 @@ class Body extends React.Component {
         email: "jsmith@uptwork.com",
         firstLanguage: "English",
       },
-      languages: [
-        { language: "Spanish", level: "Intermediate" },
-        { language: "Portuguese", level: "Fluent" },
-        { language: "French", level: "Basic" },
-      ],
-      socialMedias: [
-        { website: "LinkedIn", address: "linkedin.com/johnutw" },
-        { website: "Github", address: "github.com/johnutw" },
-      ],
-      keySkills: [
-        "Project Management",
-        "Team Management",
-        "Budget Management",
-        "Change Management",
-        "IT Strategy Development",
-        "IT Process Analysis",
-        "IT Integration and Migrations",
-      ],
-      techSkills: [
-        "MS Windows Server 2003/2008",
-        "Linux/Unix",
-        "LAN, WAN, WLAN, SD-WAN",
-        "Active Directory",
-        "Cisco Routers",
-        "SAP",
-      ],
+      languages: [],
+      socialMedias: [],
+      keySkills: [],
+      techSkills: [],
       jobHistory: [],
       graduations: [],
       coursesTaken: [],
@@ -175,6 +153,33 @@ class Body extends React.Component {
     }))
   }
 
+  addSkill = (info) => {
+    if (info.skillType.value === "techSkill") {
+      this.setState(prevState => ({
+        techSkills: [...prevState.techSkills, info.skillName.value]
+      }))
+    }
+    else if (info.skillType.value === "keySkill") {
+      this.setState(prevState => ({
+        keySkills: [...prevState.keySkills, info.skillName.value]
+      }))
+    }
+  }
+
+  addLanguage = (info) => {
+      this.setState(prevState => ({
+        languages: [...prevState.languages, {language: info.languageName.value, level: info.languageLevel.value}]
+      }))
+  }
+
+  addSocialMedia = (info) => {
+    const noProtocol = info.mediaLink.value.replace("http://", "").replace("https://", "").replace("www.", "").trim()
+    console.log(info)
+    this.setState(prevState => ({
+      socialMedias: [...prevState.socialMedias, {website: info.mediaName.value, address: noProtocol}]
+    }))
+}
+
   render() {
     return (
       <div className="App">
@@ -202,6 +207,9 @@ class Body extends React.Component {
             addCourse={this.addCourse}
             addGraduation={this.addGraduation}
             addExperience={this.addExperience}
+            addSkill={this.addSkill}
+            addLanguage={this.addLanguage}
+            addSocialMedia={this.addSocialMedia}
           />
           <Curriculum
             userProfile={this.state.profile}
