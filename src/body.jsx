@@ -44,13 +44,11 @@ class Body extends React.Component {
         addButton.innerText = "➕";
         section.appendChild(addButton);
       }
-      document.getElementById("modification").classList.remove("hidden");
       this.setState({ editMode: true });
     } else if (this.state.editMode === true) {
       for (const section of sections) {
         section.lastChild.remove();
       }
-      document.getElementById("modification").classList.add("hidden");
       this.setState({ editMode: false });
     }
   };
@@ -202,6 +200,7 @@ class Body extends React.Component {
           </button>
         </div>
         <div className="main">
+          {this.state.editMode === true && 
           <Edit
             editState={this.editField}
             addCourse={this.addCourse}
@@ -210,7 +209,7 @@ class Body extends React.Component {
             addSkill={this.addSkill}
             addLanguage={this.addLanguage}
             addSocialMedia={this.addSocialMedia}
-          />
+          /> }
           <Curriculum
             userProfile={this.state.profile}
             userLanguages={this.state.languages}

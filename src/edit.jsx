@@ -37,7 +37,7 @@ function Edit(props) {
 
 
   return (
-    <div id="modification" className="hidden">
+    <div id="modification">
       <div className="fields">
         <h3>Basic Information</h3>
         <label htmlFor="editName">Name</label>
