@@ -10,7 +10,7 @@ function Attributions(props) {
 
 function Experience(props) {
   const myHistory = props.jobHistory.map((item) => (
-    <div key={uniqueKey()} className="experienceItem">
+    <div key={item.id} id={item.id} className="experienceItem">
       <div className="experienceInfo">
         <h4 className="companyName">{item.company}</h4>
         <div className="rolePeriod">

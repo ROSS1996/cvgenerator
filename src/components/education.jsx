@@ -1,9 +1,8 @@
 import React from "react";
-import { v4 as uniqueKey } from "uuid";
 
 function Graduations(props) {
   const myGraduations = props.gradList.map((item) => (
-    <li key={uniqueKey()} className="educationItem">
+    <li key={item.id} id={item.id} className="educationItem">
       <div className="period">
         <h4 className="start">{item.dateStarted}</h4>
         <h4 className="finish">{item.dateFinished}</h4>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./curriculum.css";
 
+
 import Experience from "./components/experience";
 import Graduations from "./components/education";
 import Courses from "./components/courses";

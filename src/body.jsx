@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uniqueKey } from "uuid";
 
 import Curriculum from "./curriculum";
 import Edit from "./edit";
@@ -120,6 +121,7 @@ class Body extends React.Component {
     }
 
     const newValue = {
+      id: uniqueKey(),
       dateStarted: info.experienceStart.value.replace("-", "/"),
       dateFinished: info.experienceEnd.value.replace("-", "/"),
       role: info.companyRole.value,
@@ -133,6 +135,7 @@ class Body extends React.Component {
 
   addGraduation = (info) => {
     const newValue = {
+      id: uniqueKey(),
       dateStarted: info.educationStart.value.replace("-", "/"),
       dateFinished: info.educationEnd.value.replace("-", "/"),
       courseName: info.gradCourse.value,
@@ -145,7 +148,7 @@ class Body extends React.Component {
   }
 
   addCourse = (info) => {
-    const newValue = {date: info.courseDate.value.replace("-", "/"), courseName: info.courseName.value, institution: info.courseInstitution.value}
+    const newValue = {id: uniqueKey(),date: info.courseDate.value.replace("-", "/"), courseName: info.courseName.value, institution: info.courseInstitution.value}
     this.setState(prevState => ({
       coursesTaken: [...prevState.coursesTaken, newValue]
     }))
