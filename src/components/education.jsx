@@ -18,7 +18,7 @@ function Graduations(props) {
   ));
   return (
     <section id="educationSection">
-      <div className="section">
+      <div className="section" id="educationNode">
         <h3>Education</h3>
       </div>
       <ul id="education">{myGraduations}</ul>

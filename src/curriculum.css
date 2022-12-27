@@ -171,9 +171,6 @@ input, textarea, select {
 .fields {
    display: flex;
    flex-direction: column;
-   border: 1px solid black;
-   padding: 15px;
-   background-color: #e4e4e4;
    gap: 5px;
 }
 

@@ -2,13 +2,15 @@ import React from "react";
 import { v4 as uniqueKey } from "uuid";
 
 import Curriculum from "./curriculum";
-import Edit from "./edit";
+import Edit from "./edit"
 
 class Body extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       editMode: false,
+      modalIsOpen: false,
+      modalItems: '',
       profile: {
         fullName: "John Smith",
         role: "IT Project Manager",
@@ -28,29 +30,50 @@ class Body extends React.Component {
     };
   }
 
+  openModal = (feed) => {
+    this.setState({modalIsOpen: true})
+  }
+
+  closeModal = () => {
+    this.setState({modalIsOpen: false})
+    this.setState({ modalItems: '' });
+  }
+
   printCurriculum = () => {
     if (this.state.editMode === false) {
       window.print();
     }
   };
+
   toggleEdit = (button) => {
     button.target.classList.toggle("editButtonActive");
     const printButton = document.getElementById("printButton");
     printButton.classList.toggle("printButtonDisable");
     const sections = document.getElementsByClassName("section");
+    const userName = document.getElementById('personName')
     if (this.state.editMode === false) {
       for (const section of sections) {
         const addButton = document.createElement("button");
         addButton.classList.add("addButton");
         addButton.innerText = "➕";
         section.appendChild(addButton);
+        addButton.addEventListener('click', (e) => {
+          this.setState({ modalItems: section.id });
+          this.openModal(e.target.id)
+        }
+          )
       }
       this.setState({ editMode: true });
+      userName.addEventListener('click', (e) => { 
+        this.setState({ modalItems: e.target.id });
+        this.openModal(e.target.id)
+      })
     } else if (this.state.editMode === true) {
       for (const section of sections) {
         section.lastChild.remove();
       }
       this.setState({ editMode: false });
+      userName.removeEventListener('click', this.openModal)
     }
   };
 
@@ -175,7 +198,6 @@ class Body extends React.Component {
 
   addSocialMedia = (info) => {
     const noProtocol = info.mediaLink.value.replace("http://", "").replace("https://", "").replace("www.", "").trim()
-    console.log(info)
     this.setState(prevState => ({
       socialMedias: [...prevState.socialMedias, {website: info.mediaName.value, address: noProtocol}]
     }))
@@ -203,16 +225,6 @@ class Body extends React.Component {
           </button>
         </div>
         <div className="main">
-          {this.state.editMode === true && 
-          <Edit
-            editState={this.editField}
-            addCourse={this.addCourse}
-            addGraduation={this.addGraduation}
-            addExperience={this.addExperience}
-            addSkill={this.addSkill}
-            addLanguage={this.addLanguage}
-            addSocialMedia={this.addSocialMedia}
-          /> }
           <Curriculum
             userProfile={this.state.profile}
             userLanguages={this.state.languages}
@@ -223,6 +235,19 @@ class Body extends React.Component {
             userGRAD={this.state.graduations}
             userCourses={this.state.coursesTaken}
           />
+          {this.state.editMode === true &&
+          <Edit
+            modalIsOpen={this.state.modalIsOpen}
+            closeModal={this.closeModal}
+            modalChange={this.state.modalItems}
+            editState={this.editField}
+            addCourse={this.addCourse}
+            addGraduation={this.addGraduation}
+            addExperience={this.addExperience}
+            addSkill={this.addSkill}
+            addLanguage={this.addLanguage}
+            addSocialMedia={this.addSocialMedia}
+          /> }
         </div>
       </div>
     );

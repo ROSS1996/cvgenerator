@@ -37,7 +37,7 @@ function SocialMedias(props) {
   ));
   return (
     <section id="socialmedia">
-      <h3 className="section">Social Media</h3>
+      <h3 className="section" id="socialMediaNode">Social Media</h3>
       <ul>{myMedias}</ul>
     </section>
   );
@@ -49,7 +49,7 @@ function KeySkills(props) {
   ));
   return (
     <section id="keySkills">
-      <div className="section">
+      <div className="section" id="keySkillsNode">
         <h3>Key Skills</h3>
       </div>
       <ul>{mySkills}</ul>
@@ -63,7 +63,7 @@ function TechSkills(props) {
   ));
   return (
     <section id="techSkills">
-      <h3 className="section">Technical Skills</h3>
+      <h3 className="section" id="techSkillsNode">Technical Skills</h3>
       <ul>{mySkills}</ul>
     </section>
   );
@@ -78,7 +78,7 @@ function Languages(props) {
   ));
   return (
     <section id="languages">
-      <div className="section">
+      <div className="section"  id="languagesNode" >
         <h3>Languages</h3>
       </div>
       <ul>

@@ -9,7 +9,7 @@ function Courses(props) {
   ));
   return (
     <section id="coursesSection">
-      <div className="section">
+      <div className="section" id="coursesNode">
         <h3>Courses</h3>
       </div>
       <ul id="courses">{myCourses}</ul>

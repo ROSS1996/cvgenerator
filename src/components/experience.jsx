@@ -30,7 +30,7 @@ function Experience(props) {
   ));
   return (
     <section id="experiencesSection">
-      <div className="section">
+      <div className="section" id="experienceNode">
         <h3>Experience</h3>
       </div>
       <ul id="experienceList">{myHistory}</ul>
