@@ -344,7 +344,7 @@ export default function Edit(props) {
             onRequestClose={props.closeModal}
             style={customStyles}
           >
-            <EditSkill addSocialMedia={props.addSkill} closeModal={props.closeModal}/>
+            <EditSkill addSkill={props.addSkill} closeModal={props.closeModal}/>
           </Modal>
         </>
       )
