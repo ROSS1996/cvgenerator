@@ -12,7 +12,7 @@ const customStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     padding: "20px",
-    border: "1px solid #a1a1a1"
+    border: "1px solid #a1a1a1",
   },
 };
 
@@ -85,27 +85,32 @@ function PlaceEditor(props) {
   );
 }
 
-function EditName (props) {
+function EditName(props) {
   function editNames(event) {
     event.preventDefault();
-    props.editState({value: event.target[0].value, id: 'editName'});
+    props.editState({ value: event.target[0].value, id: "editName" });
   }
   return (
     <>
       <form className="fields" onSubmit={editNames}>
-      <label htmlFor="editName">Name</label>
-      <input type="text"  name="Name" id="editName" placeholder="Full name"/>
+        <label htmlFor="editName">Name</label>
+        <input type="text" name="Name" id="editName" placeholder="Full name" />
         <div className="actions">
-          <button type="submit" className="actionButtons" id="addButton">Edit</button>
-          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Close</button>
+          <button type="submit" className="actionButtons" id="addButton">
+            Edit
+          </button>
+          <button
+            onClick={props.closeModal}
+            className="actionButtons"
+            id="cancelButton"
+          >
+            Close
+          </button>
         </div>
       </form>
-
-  </>
-  )
+    </>
+  );
 }
-
-
 
 function AddNewCourse(props) {
   function newCourse(event) {
@@ -123,8 +128,16 @@ function AddNewCourse(props) {
         <label htmlFor="courseDate">Date</label>
         <input type="month" name="courseDate" id="courseDate" />
         <div className="actions">
-          <button type="submit" className="actionButtons" id="addButton">Add</button>
-          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Close</button>
+          <button type="submit" className="actionButtons" id="addButton">
+            Add
+          </button>
+          <button
+            onClick={props.closeModal}
+            className="actionButtons"
+            id="cancelButton"
+          >
+            Close
+          </button>
         </div>
       </form>
     </div>
@@ -157,8 +170,16 @@ function AddNewGraduation(props) {
         <label htmlFor="educationEnd">End Date</label>
         <input type="month" name="educationEnd" id="educationEnd" />
         <div className="actions">
-          <button type="submit" className="actionButtons" id="addButton">Add</button>
-          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Close</button>
+          <button type="submit" className="actionButtons" id="addButton">
+            Add
+          </button>
+          <button
+            onClick={props.closeModal}
+            className="actionButtons"
+            id="cancelButton"
+          >
+            Close
+          </button>
         </div>
       </form>
     </div>
@@ -191,8 +212,16 @@ function AddNewExperience(props) {
           <input type="text" name="attribution5" id="attribution5" />
         </fieldset>
         <div className="actions">
-          <button type="submit" className="actionButtons" id="addButton">Add</button>
-          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Close</button>
+          <button type="submit" className="actionButtons" id="addButton">
+            Add
+          </button>
+          <button
+            onClick={props.closeModal}
+            className="actionButtons"
+            id="cancelButton"
+          >
+            Close
+          </button>
         </div>
       </form>
     </>
@@ -232,8 +261,16 @@ function AddNewSkill(props) {
         <label htmlFor="courseName">Skill</label>
         <input type="text" name="skillName" id="skillName" />
         <div className="actions">
-          <button type="submit" className="actionButtons" id="addButton">Add</button>
-          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Close</button>
+          <button type="submit" className="actionButtons" id="addButton">
+            Add
+          </button>
+          <button
+            onClick={props.closeModal}
+            className="actionButtons"
+            id="cancelButton"
+          >
+            Close
+          </button>
         </div>
       </form>
     </div>
@@ -272,8 +309,16 @@ function AddNewLanguage(props) {
           </optgroup>
         </select>
         <div className="actions">
-          <button type="submit" className="actionButtons" id="addButton">Add</button>
-          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Close</button>
+          <button type="submit" className="actionButtons" id="addButton">
+            Add
+          </button>
+          <button
+            onClick={props.closeModal}
+            className="actionButtons"
+            id="cancelButton"
+          >
+            Close
+          </button>
         </div>
       </form>
     </div>
@@ -295,8 +340,16 @@ function AddNewSocialMedia(props) {
         <label htmlFor="mediaLink">Link</label>
         <input type="text" name="mediaLink" id="mediaLink" />
         <div className="actions">
-          <button type="submit" className="actionButtons" id="addButton">Add</button>
-          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Close</button>
+          <button type="submit" className="actionButtons" id="addButton">
+            Add
+          </button>
+          <button
+            onClick={props.closeModal}
+            className="actionButtons"
+            id="cancelButton"
+          >
+            Close
+          </button>
         </div>
       </form>
     </div>
@@ -305,8 +358,8 @@ function AddNewSocialMedia(props) {
 
 export default function Edit(props) {
   let operation = props.modalChange;
-  switch(operation) {
-    case 'experienceNode':
+  switch (operation) {
+    case "experienceNode":
       return (
         <>
           <Modal
@@ -315,11 +368,14 @@ export default function Edit(props) {
             onRequestClose={props.closeModal}
             style={customStyles}
           >
-            <AddNewExperience addExperience={props.addExperience} closeModal={props.closeModal}/>
+            <AddNewExperience
+              addExperience={props.addExperience}
+              closeModal={props.closeModal}
+            />
           </Modal>
         </>
       );
-    case 'educationNode':
+    case "educationNode":
       return (
         <>
           <Modal
@@ -328,11 +384,14 @@ export default function Edit(props) {
             onRequestClose={props.closeModal}
             style={customStyles}
           >
-            <AddNewGraduation addGraduation={props.addGraduation} closeModal={props.closeModal}/>
+            <AddNewGraduation
+              addGraduation={props.addGraduation}
+              closeModal={props.closeModal}
+            />
           </Modal>
         </>
-      )
-    case 'coursesNode':
+      );
+    case "coursesNode":
       return (
         <>
           <Modal
@@ -341,11 +400,14 @@ export default function Edit(props) {
             onRequestClose={props.closeModal}
             style={customStyles}
           >
-            <AddNewCourse addCourse={props.addCourse} closeModal={props.closeModal}/>
+            <AddNewCourse
+              addCourse={props.addCourse}
+              closeModal={props.closeModal}
+            />
           </Modal>
         </>
-      )
-    case 'socialMediaNode':
+      );
+    case "socialMediaNode":
       return (
         <>
           <Modal
@@ -354,12 +416,15 @@ export default function Edit(props) {
             onRequestClose={props.closeModal}
             style={customStyles}
           >
-            <AddNewSocialMedia addSocialMedia={props.addSocialMedia} closeModal={props.closeModal}/>
+            <AddNewSocialMedia
+              addSocialMedia={props.addSocialMedia}
+              closeModal={props.closeModal}
+            />
           </Modal>
         </>
-      )
-    case 'keySkillsNode':
-    case 'techSkillsNode':
+      );
+    case "keySkillsNode":
+    case "techSkillsNode":
       return (
         <>
           <Modal
@@ -368,11 +433,14 @@ export default function Edit(props) {
             onRequestClose={props.closeModal}
             style={customStyles}
           >
-            <AddNewSkill addSkill={props.addSkill} closeModal={props.closeModal}/>
+            <AddNewSkill
+              addSkill={props.addSkill}
+              closeModal={props.closeModal}
+            />
           </Modal>
         </>
-      )
-    case 'languagesNode':
+      );
+    case "languagesNode":
       return (
         <>
           <Modal
@@ -381,11 +449,14 @@ export default function Edit(props) {
             onRequestClose={props.closeModal}
             style={customStyles}
           >
-            <AddNewLanguage addLanguage={props.addLanguage} closeModal={props.closeModal}/>
+            <AddNewLanguage
+              addLanguage={props.addLanguage}
+              closeModal={props.closeModal}
+            />
           </Modal>
         </>
-      )
-    case 'personName':
+      );
+    case "personName":
       return (
         <>
           <Modal
@@ -394,10 +465,13 @@ export default function Edit(props) {
             onRequestClose={props.closeModal}
             style={customStyles}
           >
-            <EditName editState={props.editState} closeModal={props.closeModal}/>
+            <EditName
+              editState={props.editState}
+              closeModal={props.closeModal}
+            />
           </Modal>
         </>
-      )
+      );
     default:
       return (
         <div>
