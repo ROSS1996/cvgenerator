@@ -35,19 +35,20 @@ fieldset {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+
 }
 
 .actionButtons {
   font-size: 0.8rem;
   padding: 3px;
   border: 1px solid lightslategray;
-  border-radius: 3px;
   width: 5rem;
+  margin-top: 2px;
 }
 
 #addButton {
   background-color: #679e14;
+  border-radius: 3px 0 0 3px;
 }
 
 #addButton:active {
@@ -56,6 +57,7 @@ fieldset {
 
 #cancelButton {
   background-color: #dd4444;
+  border-radius: 0 3px 3px 0;
 }
 
 #cancelButton:active {
@@ -106,7 +108,7 @@ label, legend {
 }
 
 .printButtonDisable {
-  background-color: rgb(161, 161, 161);
+  background-color: #a1a1a1;
   cursor: default;
 }
 

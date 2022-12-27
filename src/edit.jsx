@@ -11,10 +11,12 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
+    padding: "20px",
+    border: "1px solid #a1a1a1"
   },
 };
 
-function EditName(props) {
+function PlaceEditor(props) {
   function editar(event) {
     props.editState(event.target);
   }
@@ -83,7 +85,29 @@ function EditName(props) {
   );
 }
 
-function EditCourse(props) {
+function EditName (props) {
+  function editNames(event) {
+    event.preventDefault();
+    props.editState({value: event.target[0].value, id: 'editName'});
+  }
+  return (
+    <>
+      <form className="fields" onSubmit={editNames}>
+      <label htmlFor="editName">Name</label>
+      <input type="text"  name="Name" id="editName" placeholder="Full name"/>
+        <div className="actions">
+          <button type="submit" className="actionButtons" id="addButton">Edit</button>
+          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Close</button>
+        </div>
+      </form>
+
+  </>
+  )
+}
+
+
+
+function AddNewCourse(props) {
   function newCourse(event) {
     event.preventDefault();
     props.addCourse(event.target);
@@ -100,14 +124,14 @@ function EditCourse(props) {
         <input type="month" name="courseDate" id="courseDate" />
         <div className="actions">
           <button type="submit" className="actionButtons" id="addButton">Add</button>
-          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Cancel</button>
+          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Close</button>
         </div>
       </form>
     </div>
   );
 }
 
-function EditGraduation(props) {
+function AddNewGraduation(props) {
   function newGraduation(event) {
     event.preventDefault();
     props.addGraduation(event.target);
@@ -134,14 +158,14 @@ function EditGraduation(props) {
         <input type="month" name="educationEnd" id="educationEnd" />
         <div className="actions">
           <button type="submit" className="actionButtons" id="addButton">Add</button>
-          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Cancel</button>
+          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Close</button>
         </div>
       </form>
     </div>
   );
 }
 
-function EditExperience(props) {
+function AddNewExperience(props) {
   function newExperience(event) {
     event.preventDefault();
     props.addExperience(event.target);
@@ -168,14 +192,14 @@ function EditExperience(props) {
         </fieldset>
         <div className="actions">
           <button type="submit" className="actionButtons" id="addButton">Add</button>
-          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Cancel</button>
+          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Close</button>
         </div>
       </form>
     </>
   );
 }
 
-function EditSkill(props) {
+function AddNewSkill(props) {
   function newSkill(event) {
     event.preventDefault();
     props.addSkill(event.target);
@@ -209,14 +233,14 @@ function EditSkill(props) {
         <input type="text" name="skillName" id="skillName" />
         <div className="actions">
           <button type="submit" className="actionButtons" id="addButton">Add</button>
-          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Cancel</button>
+          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Close</button>
         </div>
       </form>
     </div>
   );
 }
 
-function EditLanguage(props) {
+function AddNewLanguage(props) {
   function newLanguage(event) {
     event.preventDefault();
     props.addLanguage(event.target);
@@ -249,14 +273,14 @@ function EditLanguage(props) {
         </select>
         <div className="actions">
           <button type="submit" className="actionButtons" id="addButton">Add</button>
-          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Cancel</button>
+          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Close</button>
         </div>
       </form>
     </div>
   );
 }
 
-function EditSocialMedia(props) {
+function AddNewSocialMedia(props) {
   function newSocialMedia(event) {
     event.preventDefault();
     props.addSocialMedia(event.target);
@@ -272,7 +296,7 @@ function EditSocialMedia(props) {
         <input type="text" name="mediaLink" id="mediaLink" />
         <div className="actions">
           <button type="submit" className="actionButtons" id="addButton">Add</button>
-          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Cancel</button>
+          <button onClick={props.closeModal} className="actionButtons" id="cancelButton">Close</button>
         </div>
       </form>
     </div>
@@ -291,7 +315,7 @@ export default function Edit(props) {
             onRequestClose={props.closeModal}
             style={customStyles}
           >
-            <EditExperience addExperience={props.addExperience} closeModal={props.closeModal}/>
+            <AddNewExperience addExperience={props.addExperience} closeModal={props.closeModal}/>
           </Modal>
         </>
       );
@@ -304,7 +328,7 @@ export default function Edit(props) {
             onRequestClose={props.closeModal}
             style={customStyles}
           >
-            <EditGraduation addGraduation={props.addGraduation} closeModal={props.closeModal}/>
+            <AddNewGraduation addGraduation={props.addGraduation} closeModal={props.closeModal}/>
           </Modal>
         </>
       )
@@ -317,7 +341,7 @@ export default function Edit(props) {
             onRequestClose={props.closeModal}
             style={customStyles}
           >
-            <EditCourse addCourse={props.addCourse} closeModal={props.closeModal}/>
+            <AddNewCourse addCourse={props.addCourse} closeModal={props.closeModal}/>
           </Modal>
         </>
       )
@@ -330,7 +354,7 @@ export default function Edit(props) {
             onRequestClose={props.closeModal}
             style={customStyles}
           >
-            <EditSocialMedia addSocialMedia={props.addSocialMedia} closeModal={props.closeModal}/>
+            <AddNewSocialMedia addSocialMedia={props.addSocialMedia} closeModal={props.closeModal}/>
           </Modal>
         </>
       )
@@ -344,7 +368,7 @@ export default function Edit(props) {
             onRequestClose={props.closeModal}
             style={customStyles}
           >
-            <EditSkill addSkill={props.addSkill} closeModal={props.closeModal}/>
+            <AddNewSkill addSkill={props.addSkill} closeModal={props.closeModal}/>
           </Modal>
         </>
       )
@@ -357,7 +381,20 @@ export default function Edit(props) {
             onRequestClose={props.closeModal}
             style={customStyles}
           >
-            <EditLanguage addLanguage={props.addLanguage} closeModal={props.closeModal}/>
+            <AddNewLanguage addLanguage={props.addLanguage} closeModal={props.closeModal}/>
+          </Modal>
+        </>
+      )
+    case 'personName':
+      return (
+        <>
+          <Modal
+            isOpen={props.modalIsOpen}
+            onAfterOpen={props.afterOpenModal}
+            onRequestClose={props.closeModal}
+            style={customStyles}
+          >
+            <EditName editState={props.editState} closeModal={props.closeModal}/>
           </Modal>
         </>
       )
